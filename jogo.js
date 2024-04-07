@@ -53,7 +53,7 @@ function criaChao() {
     y: canvas.height - 112,
     atualiza() {
       const movimentoDoChao = 1;
-      const repeteEm = chao.largura / 2;
+      const repeteEm = chao.largura / 3;
       const movimentacao = chao.x - movimentoDoChao;
 
       // console.log('[chao.x]', chao.x);
@@ -70,15 +70,24 @@ function criaChao() {
         chao.x, chao.y,
         chao.largura, chao.altura,
       );
-  
       contexto.drawImage(
         sprites,
         chao.spriteX, chao.spriteY,
         chao.largura, chao.altura,
-        (chao.x + chao.largura), chao.y,
+        (chao.x + chao.largura) , chao.y,
         chao.largura, chao.altura,
       );
+      
+      contexto.drawImage(
+        sprites,
+        chao.spriteX, chao.spriteY,
+        chao.largura, chao.altura,
+        (chao.x + chao.largura) + (chao.x + chao.largura) , chao.y,
+        chao.largura, chao.altura,
+      );
+      
     },
+    
   };
   return chao;
 }
@@ -100,7 +109,7 @@ function criaFlappyBird() {
     spriteY: 0,
     largura: 33,
     altura: 24,
-    x: 10,
+    x: 30,
     y: 50,
     pulo: 4.6,
     pula() {
@@ -207,7 +216,7 @@ const mensagemGameOver = {
 function criaCanos() {
   const canos = {
     largura: 52,
-    altura: 400,
+    altura: 200,
     chao: {
       spriteX: 0,
       spriteY: 169,
